@@ -1,0 +1,11 @@
+Do not store passwords - generate them when needed.
+(http://news.ycombinator.com/item?id=2430808)
+
+usage:
+
+OSX:
+    alias p='passy.py | pbcopy'
+
+Linux:
+    alias p='passy.py | xsel --clipboard --input'
+    alias p='passy.py | xclip -selection clipboard'
