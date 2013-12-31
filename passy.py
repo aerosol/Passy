@@ -69,6 +69,10 @@ def encode(domain, key):
 
 
 if __name__ == '__main__':
-    domain = sys.argv[1]
+    try:
+        domain = sys.argv[1]
+    except IndexError:
+        sys.stderr.write("Argument required\n")
+        sys.exit(1)
     key = getpass.getpass()
     sys.stdout.write(encode(domain, key))
