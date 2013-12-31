@@ -26,11 +26,9 @@ Linux:
 def get_chars(key):
     """Prepare a set of characters to build passwords with"""
 
-    charset = "".join([string.ascii_letters, \
-            string.digits, \
-            string.punctuation])
-    nums = map(int, filter(lambda x: x.isdigit(), \
-            sha1(key[::-1]).hexdigest()))
+    charset = "".join([string.ascii_letters, string.digits,
+                       string.punctuation])
+    nums = map(int, filter(lambda x: x.isdigit(), sha1(key[::-1]).hexdigest()))
     chars = ""
     index = 0
     for n in itertools.cycle(nums):
@@ -50,8 +48,7 @@ def encode(domain, key):
     assert len(chars) == 32
     key = hmac.new(domain, key).hexdigest()
     key += sha1(key).hexdigest()
-    recoded = map(lambda x: chars[ord(x) % 32],
-                key.decode('hex'))
+    recoded = map(lambda x: chars[ord(x) % 32], key.decode('hex'))
     password = ""
     pass_valid = [False] * 4
 
