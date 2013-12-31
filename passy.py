@@ -72,6 +72,6 @@ def encode(domain, key):
 
 
 if __name__ == '__main__':
-    domain = getpass.getpass("Domain: ")
+    domain = sys.argv[1]
     key = getpass.getpass()
     sys.stdout.write(encode(domain, key))
